@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .buttons-container {
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#sim-btn {
+  background-color: green;
+  flex: 1;
+  margin-right: 10px;
+}
+#nao-btn {
+  background-color: red;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+    </style>
+    
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="buttons-container">
+        <h1>Bora beber ?</h1>
+        <div class="button-wrapper">
+          <button id="sim-btn">Sim</button>
+          <button id="nao-btn">Não</button>
+        </div>
+      </div>
+      
+      
+  <script>
+    const simBtn = document.getElementById("sim-btn");
+const naoBtn = document.getElementById("nao-btn");
+
+naoBtn.addEventListener("mouseover", () => {
+  const width = document.documentElement.clientWidth - naoBtn.clientWidth;
+  const height = document.documentElement.clientHeight - naoBtn.clientHeight;
+  const newLeft = Math.floor(Math.random() * width);
+  const newTop = Math.floor(Math.random() * height);
+  naoBtn.style.left = newLeft + "px";
+  naoBtn.style.top = newTop + "px";
+});
+
+naoBtn.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+simBtn.addEventListener("click", () => {
+  alert("Você clicou em SIM!");
+});
+
+  </script>
+</body>
+</html>
